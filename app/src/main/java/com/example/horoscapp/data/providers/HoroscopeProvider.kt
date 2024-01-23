@@ -5,7 +5,6 @@ import com.example.horoscapp.domain.model.HoroscopeInfo.*
 import javax.inject.Inject
 
 class HoroscopeProvider @Inject constructor(){
-//Esta clase nos prove la informacion
     fun getHoroscopes(): List<HoroscopeInfo>{
         return listOf(
             Aries,
@@ -22,5 +21,4 @@ class HoroscopeProvider @Inject constructor(){
             Pisces
         )
     }
-
 }

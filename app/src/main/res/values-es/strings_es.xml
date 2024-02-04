@@ -18,4 +18,6 @@
     <string name="capricorn">Capricornio</string>
     <string name="aquarius">Aquario</string>
     <string name="pisces">Piscis</string>
+
+    <string name="shared">Compartir</string>
 </resources>

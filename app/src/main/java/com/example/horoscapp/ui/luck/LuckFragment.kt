@@ -1,14 +1,17 @@
 package com.example.horoscapp.ui.luck
 
 import android.animation.ObjectAnimator
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.DecelerateInterpolator
+import android.view.animation.RotateAnimation
 import androidx.core.animation.doOnEnd
 import androidx.core.view.isVisible
 import com.example.horoscapp.R
@@ -57,6 +60,9 @@ class LuckFragment : Fragment() {
 
             override fun onAnimationEnd(animation: Animation?) {
                 binding.reverse.isVisible = false
+                binding.preview.isVisible = false
+                binding.prediction.isVisible = true
+                showPredictionView()
             }
 
             override fun onAnimationRepeat(animation: Animation?) {}
@@ -66,7 +72,6 @@ class LuckFragment : Fragment() {
     }
 
     fun slideCard(){
-        //Son las que te probe Android y se le pasa una animación de xml
         val slideUpAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_up)
         slideUpAnimation.setAnimationListener(object: Animation.AnimationListener{
             override fun onAnimationStart(animation: Animation?) {
@@ -80,6 +85,12 @@ class LuckFragment : Fragment() {
             override fun onAnimationRepeat(animation: Animation?) {}
         })
         binding.reverse.startAnimation(slideUpAnimation)
+    }
+
+    fun showPredictionView(){
+        var animation = AlphaAnimation(0.0f, 1.0f)
+        animation.duration = 1000
+        animation.start()
     }
 
     override fun onCreateView(
